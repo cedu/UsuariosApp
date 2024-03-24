@@ -1,0 +1,45 @@
+# Arquivos de compilação
+bin/
+obj/
+
+# Arquivos de dependência
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.exe.config
+
+# Pacotes NuGet
+packages/
+
+# Arquivos de publicação de builds
+*.publish.xml
+*.pubxml
+*.publishproj
+
+# Logs e arquivos temporários
+*.log
+*.vscode/
+*.vs/
+*.suo
+*.cache
+*.user
+*.bak
+*.tmp
+
+# Arquivos gerados por IDEs
+.vscode/
+*.sln.cache
+*.suo
+*.user
+*.userprefs
+*.pidb
+
+# Arquivos de configuração
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Outros arquivos e diretórios que podem ser gerados durante o desenvolvimento
+node_modules/
+bower_components/
