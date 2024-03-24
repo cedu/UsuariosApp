@@ -1,45 +1,95 @@
-# Arquivos de compilação
+# Arquivos gerados pela compilação
 bin/
 obj/
 
-# Arquivos de dependência
+# Dependências
 *.dll
 *.exe
 *.pdb
 *.dll.config
-*.exe.config
-
-# Pacotes NuGet
-packages/
-
-# Arquivos de publicação de builds
-*.publish.xml
-*.pubxml
-*.publishproj
-
-# Logs e arquivos temporários
+*.cache
 *.log
 *.vscode/
-*.vs/
+.vs/
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp
+*.user
+*.userosscache
 *.suo
 *.cache
-*.user
-*.bak
-*.tmp
+*.sln.docstates
 
-# Arquivos gerados por IDEs
-.vscode/
-*.sln.cache
+# Diretórios gerados pela compilação
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[~$]*
+[Tt]est[Rr]esult*/
+history.txt
+ReSharper*/
+
+# Arquivos de projeto
+*.xproj
+*.swp
+*.csproj.user
+*.csproj.dotsettings.user
 *.suo
 *.user
-*.userprefs
-*.pidb
+*.vssscc
+*.vs10x
+*.dotCover
+*.resharper
+*.dotsettings
+*.teamcity
 
 # Arquivos de configuração
 appsettings.json
 appsettings.Development.json
-appsettings.Production.json
 
-# Outros arquivos e diretórios que podem ser gerados durante o desenvolvimento
-node_modules/
-bower_components/
+# Arquivos sensíveis
+*.pfx
+
+# Logs e rastreamentos
+*.log
+*.log.*
+*.trace
+
+# Diretórios de publicação
+publish/
+wwwroot/
+
+# Ferramentas
+_ReSharper*/
+*.resharper
+*.sln.docstates
+
+# Pacotes
+packages/
+*.nupkg
+# Arquivos do Visual Studio
+.vscode/
+.vs/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
