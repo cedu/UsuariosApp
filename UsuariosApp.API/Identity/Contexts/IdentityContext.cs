@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UsuariosApp.API.Identity.Entities;
+using UsuariosApp.API.Settings;
 
 namespace UsuariosApp.API.Identity.Contexts
 {
@@ -11,11 +12,13 @@ namespace UsuariosApp.API.Identity.Contexts
     /// </summary>
     public class IdentityContext : IdentityUserContext<Usuario>
     {
+        private readonly IdentitySettings _identitySettings;
+
         //método construtor para injeção de dependência
-        public IdentityContext(DbContextOptions<IdentityContext> options)
+        public IdentityContext(DbContextOptions<IdentityContext> options, IdentitySettings identitySettings)
             : base(options)
         {
-
+            _identitySettings = identitySettings;
         }
 
         //método incluirmos os mapeamentos do banco de dados
@@ -28,23 +31,14 @@ namespace UsuariosApp.API.Identity.Contexts
             //utilizar criptografia de dados para o usuário
             var hasher = new PasswordHasher<Usuario>();
 
-            //ler os dados do usuário contido no /appsettings.json
-            var adminEmail = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json").Build()
-                .GetSection("IdentitySettings")["AdminEmail"];
-
-            var adminPassword = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json").Build()
-                .GetSection("IdentitySettings")["AdminPassword"];
-
             builder.Entity<Usuario>().HasData(new Usuario
             {
                 Id = "BB1F498C-00C5-46E3-B869-0E8AC6029087",
                 UserName = "Usuário Administrador",
-                Email = adminEmail,
-                NormalizedUserName = adminEmail.ToUpper(),
-                NormalizedEmail = adminEmail.ToUpper(),
-                PasswordHash = hasher.HashPassword(null, adminPassword)
+                Email = _identitySettings.AdminEmail,
+                NormalizedUserName = _identitySettings.AdminEmail.ToUpper(),
+                NormalizedEmail = _identitySettings.AdminEmail.ToUpper(),
+                PasswordHash = hasher.HashPassword(null, _identitySettings.AdminPassword)
             });
 
             #endregion
